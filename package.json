@@ -4,8 +4,7 @@
   "description": "A Vue directive to append an element in a component template to another part of the DOM.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc && node add-umd-global-fallback.js && npm run prepare-example",
-    "prepare-example": "cp dist/index.js example/vue-append-to.js"
+    "build": "tsc && node add-umd-global-fallback.js"
   },
   "repository": {
     "type": "git",
