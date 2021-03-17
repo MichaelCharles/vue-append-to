@@ -4,9 +4,30 @@ You probably don't need to use this plugin. If you think you do, you should prob
 
 However, if you (like me) have some kind of development constraints which are forcing you to do this, then this plugin will allow you to move an element from one component into any other element on the page that has an `id` using the `v-append-to` directive.
 
+```
+<div id="app" style="display: flex; flex-direction: column; height: 100%">
+    <div id="blue-box" style="background: cyan; flex: 1">
+        <p v-append-to="'yellow-box'">I was written in the blue box, but using the Vue Append To directive I was moved to the yellow box!</p>
+    </div>
+    <div id="yellow-box" style="background: yellow; flex: 1">
+    </div>
+</div>
+```
 
+You can import this module and use it as shown below.
 
-An example of including this module as a script tag can be seen below.
+```
+import Vue from 'vue'
+import VueAppendTo from 'vue-append-to'
+
+Vue.use(VueAppendTo)
+
+new Vue({
+    el: '#app',
+});
+```
+
+Or you save the contents of `dist/index.js` within your project and include it as a script tag.
 
 ```
 <head>
@@ -14,15 +35,7 @@ An example of including this module as a script tag can be seen below.
     <script src="./vue-append-to.js"></script>
 </head>
 <body>
-
-    <div id="app" style="display: flex; flex-direction: column; height: 100%">
-        <div id="blue-box" style="background: cyan; flex: 1">
-            <p v-append-to="'yellow-box'">I was written in the blue box, but using the Vue Append To directive I was moved to the yellow box!</p>
-        </div>
-        <div id="yellow-box" style="background: yellow; flex: 1">
-        </div>
-    </div>
-
+    <!-- content -->
     <script>
         app = new Vue({
             el: "#app"
